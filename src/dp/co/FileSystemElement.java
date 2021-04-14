@@ -16,7 +16,7 @@ public abstract class FileSystemElement {
 	}
 
 	public boolean move(Directory directory) {
-		if(directory == null || directory == this)
+		if(directory == null || !canBeAddedTo(directory))
 			return false;
 
 		if (parent!=null){
@@ -34,5 +34,8 @@ public abstract class FileSystemElement {
 	public void print(String tabs) {
 		System.out.println(tabs+name);
 	}
-	
+
+	public boolean canBeAddedTo (Directory directory) {
+		return true;
+	}
 }

@@ -13,8 +13,13 @@ public class Directory extends FileSystemElement {
 	}
 
 	public void add(FileSystemElement fileSystemElement) {
-		fileSystemElement.parent = this;
-		elements.add(fileSystemElement);
+		if(fileSystemElement.canBeAddedTo(this)) {
+			fileSystemElement.parent = this;
+			elements.add(fileSystemElement);
+		}
+		else {
+			System.out.println("Nie udalo sie dodac do folderu");
+		}
 	}
 
 	@Override
@@ -24,6 +29,14 @@ public class Directory extends FileSystemElement {
 		for(FileSystemElement e : elements){
 			e.print(tabs);
 		}
+	}
+
+	@Override
+	public boolean canBeAddedTo (Directory directory) {
+		if(directory==this) {
+			return false;
+		}
+		return true;
 	}
 
 }
