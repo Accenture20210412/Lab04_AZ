@@ -1,11 +1,14 @@
 package dp.co;
 
-public interface FileSystemElement {
-
-	public boolean rename(String newName);
-	public boolean remove();
-	public boolean move();
-	public void print();
-	public void add(FileSystemElement fileSystemElement);
+public abstract class FileSystemElement {
+	public String name;
+	public FileSystemElement parent;
+	public boolean rename(String newName){
+		this.name = newName;
+		return true;
+	}
+	public abstract boolean remove();
+	public abstract boolean move();
+	public abstract void print();
 	
 }

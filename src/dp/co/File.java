@@ -1,17 +1,9 @@
 package dp.co;
 
-public class File implements FileSystemElement {
-
-	private String name;
+public class File extends FileSystemElement {
 	
 	public File(String name) {
 		this.name = name;
-	}
-	
-	@Override
-	public boolean rename(String newName) {
-		this.name = newName;
-		return true;
 	}
 
 	@Override
@@ -29,12 +21,6 @@ public class File implements FileSystemElement {
 	@Override
 	public void print() {
 		System.out.println(name);
-	}
-
-
-	@Override
-	public void add(FileSystemElement fileSystemElement) {
-
 	}
 
 

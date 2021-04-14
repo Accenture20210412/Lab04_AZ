@@ -4,20 +4,12 @@ package dp.co;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Directory implements FileSystemElement {
-	
-	private String name;
+public class Directory extends FileSystemElement {
 	private List<FileSystemElement> fileSystemElements;
 	
 	public Directory(String name) {
 		this.name = name;
 		this.fileSystemElements = new ArrayList<>();
-	}
-	
-	@Override
-	public boolean rename(String newName) {
-		this.name = newName;
-		return true;
 	}
 
 	@Override
@@ -38,8 +30,8 @@ public class Directory implements FileSystemElement {
 	}
 
 
-	@Override
 	public void add(FileSystemElement fileSystemElement) {
+		fileSystemElement.parent = this;
 		fileSystemElements.add(fileSystemElement);
 	}
 
