@@ -37,6 +37,7 @@ public class Runner {
 
         dA.add(dC);
 
+        dA.print();
     }
 
 

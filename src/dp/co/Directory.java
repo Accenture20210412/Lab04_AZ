@@ -5,17 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Directory extends FileSystemElement {
-	public List<FileSystemElement> fileSystemElements;
+	public List<FileSystemElement> elements;
 	
 	public Directory(String name) {
 		this.name = name;
-		this.fileSystemElements = new ArrayList<>();
+		this.elements = new ArrayList<>();
 	}
 
 	public void add(FileSystemElement fileSystemElement) {
 		fileSystemElement.parent = this;
-		fileSystemElements.add(fileSystemElement);
+		elements.add(fileSystemElement);
 	}
 
+	@Override
+	public void print(String tabs){
+		System.out.println(tabs+"+"+name);
+		tabs+="   ";
+		for(FileSystemElement e : elements){
+			e.print(tabs);
+		}
+	}
 
 }

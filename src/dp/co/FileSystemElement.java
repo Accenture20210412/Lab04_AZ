@@ -9,7 +9,7 @@ public abstract class FileSystemElement {
 	}
 	public boolean remove() {
 		if (parent!=null) {
-			parent.fileSystemElements.remove(this);
+			parent.elements.remove(this);
 			return true;
 		}
 		return false;
@@ -20,21 +20,19 @@ public abstract class FileSystemElement {
 			return false;
 
 		if (parent!=null){
-			parent.fileSystemElements.remove(this);
+			parent.elements.remove(this);
 		}
 		directory.add(this);
 
 		return true;
 	}
 
-	public void print() {
-		/*Directory parent = this.parent;
-		String tabs = "";
-		while(parent != null) {
-			tabs += "   ";
-			parent = parent.parent;
-		}*/
-		System.out.println(name);
+	public void print(){
+		print("");
+	}
+
+	public void print(String tabs) {
+		System.out.println(tabs+name);
 	}
 	
 }
