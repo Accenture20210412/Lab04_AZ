@@ -37,6 +37,8 @@ public class Runner {
 
         dA.add(dC);
 
+        //print wywoluje sie najpierw w FileSystemElement,
+        //tam wywolywany jest print(String tabs) z Directory.
         dA.print();
     }
 

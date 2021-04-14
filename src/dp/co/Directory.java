@@ -1,9 +1,9 @@
 package dp.co;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
+//zmiana na abstract class aby w jednym miejscu implementowac powtarzajace sie
+//w File & Directory metody oraz powtarzajace sie pola
 public class Directory extends FileSystemElement {
 	public List<FileSystemElement> elements;
 	
@@ -23,6 +23,7 @@ public class Directory extends FileSystemElement {
 	}
 
 	@Override
+	//to do: zabezpieczyc rekurencje
 	public void print(String tabs){
 		System.out.println(tabs+"+"+name);
 		tabs+="   ";
@@ -32,10 +33,12 @@ public class Directory extends FileSystemElement {
 	}
 
 	@Override
+	//zabezpieczenie by nie dalo sie dodac do dodawanego pliku
 	public boolean canBeAddedTo (Directory directory) {
 		if(directory==this) {
 			return false;
 		}
+		//to do: sprawdzic dla wszystkich elementow wewnatrz dodawanego
 		return true;
 	}
 
